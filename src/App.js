@@ -14,7 +14,8 @@ class App extends React.Component{
         axios.get('https://api.adviceslip.com/advice')
                 .then((response)=>{
                     const {advice} = response.data.slip
-                    console.log(advice)
+                    
+                    this.setState({advice});
                 })
                 .catch((error)=>{
                     console.log(error)
@@ -22,8 +23,9 @@ class App extends React.Component{
     }
 
     render(){
+        const {advice} = this.state
         return(
-            <h1>Advice application</h1>
+            <h1>{advice}</h1>
         )
     }
 }
